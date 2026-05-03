@@ -28,7 +28,7 @@ function renderMarkdown(text: string): string {
 
   html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, (_, lang, code) => {
     const label = lang || 'code'
-    if(typeof window !== 'undefined' && !window.copyCode) { window.copyCode = function(btn) { const code = btn.closest('.code-wrap').querySelector('code').innerText; navigator.clipboard.writeText(code); btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); } }
+    if(typeof window !== 'undefined') { (window as any).copyCode = function(btn: any) { const code = btn.closest('.code-wrap').querySelector('code').innerText; navigator.clipboard.writeText(code); btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); } }
 return `<div class="code-wrap"><div class="code-header"><span class="code-lang">${label}</span><button class="code-copy-btn" onclick="copyCode(this)">Copy</button></div><pre class="code-pre"><code>${code.trimEnd()}</code></pre></div>`
   })
 
