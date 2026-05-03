@@ -81,7 +81,6 @@ function SignInModal({ onClose, theme }: { onClose: () => void; theme: string })
   }
 
   const isDark = theme === 'dark'
-  useEffect(()=>{ const t=localStorage.getItem('theme') as any; if(t) setTheme(t) },[])
   const bg = isDark ? '#1a1a1a' : '#fff'
   const border = isDark ? '#2a2a2a' : '#e0e0e0'
   const text = isDark ? '#fff' : '#111'
