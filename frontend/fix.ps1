@@ -1,0 +1,1 @@
+(Get-Content "app\page.tsx") | ForEach-Object { $_ -replace '\{\[col\.links\.map\]\(http://col\.links\.map\)\(', '{col.links.map(' } | Set-Content "app\page.tsx" -Encoding utf8
